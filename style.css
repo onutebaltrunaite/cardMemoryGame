@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+#container {
+    border-radius: 10px;
+    background-color: gray;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.cell {
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    margin: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.cell:hover {
+    background-color: rgb(54, 54, 54);
+}
