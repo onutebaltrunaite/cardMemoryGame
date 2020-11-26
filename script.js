@@ -32,11 +32,14 @@ let cardsChosen = []
 let elementsChosen = []
 
 function flipCard(event) {
+    
     if (cardsChosen.length < 2) {
         let chosenCardColor = event.target.classList[1]
         event.path[0].style.backgroundColor = `${chosenCardColor}`
         cardsChosen.push(chosenCardColor)
         elementsChosen.push(event.path[0])
+        // event.path[0].style.pointerEvents = "none"
+        console.log(event)
     }
     if (cardsChosen.length === 2) {
         checkingMatches()
@@ -45,9 +48,14 @@ function flipCard(event) {
     console.log(cardsChosen)
 }
 
-function checkingMatches() {
+function checkingMatches(event) {
     if (cardsChosen[0] === cardsChosen[1]) {
         console.log('You win')
+        
+        cardsChosen = []
+        elementsChosen[0].style.backgroundColor = 'gray'
+        elementsChosen[1].style.backgroundColor = 'gray'
+        elementsChosen = []
         // score++
     } else {
         setTimeout(() => {        
@@ -57,6 +65,7 @@ function checkingMatches() {
             elementsChosen[1].style.backgroundColor = 'black'
             elementsChosen = []
         }, 1000)
+       
     }
 }
 
